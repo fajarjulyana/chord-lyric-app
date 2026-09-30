@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title><%= song.artist %> - <%= song.title %></title>
+  <style>
+    pre {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 16px;
+      line-height: 2.2; /* Memberi ruang antar baris agar chord tidak saling menimpa */
+      background: #f8f9fa;
+      padding: 15px;
+      border-radius: 5px;
+    }
+
+    /* Pembungkus utama untuk menumpuk chord di atas kata */
+    .chord-wrapper {
+      display: inline-flex;
+      flex-direction: column;
+      vertical-align: bottom;
+      align-items: flex-start;
+      height: 2.8em;
+      justify-content: flex-end;
+    }
+
+    /* Tampilan teks chord */
+    .chord {
+      color: #d97706;
+      font-weight: bold;
+      font-size: 0.9em;
+      line-height: 1;
+      margin-bottom: 2px;
+    }
+  </style>
+</head>
+<body>
+  <p><a href="/">← Kembali ke Utama</a></p>
+  <h1><%= song.title %></h1>
+  <h3>Artis: <%= song.artist %></h3>
+
+  <div class="controls">
+    <span>Transpose Nada: </span>
+    <button onclick="changeKey(-1)">-1 Semitone</button>
+    <strong id="transpose-val" style="margin: 0 10px;">0</strong>
+    <button onclick="changeKey(1)">+1 Semitone</button>
+  </div>
+
+  <pre id="chord-display"></pre>
+
+  <script src="/js/transposer.js"></script>
+  <script>
+    const rawData = <%- JSON.stringify(song.content) %>;
+    initTransposer(rawData);
+  </script>
+</body>
+</html>

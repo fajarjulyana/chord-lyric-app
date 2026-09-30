@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Input Chord Baru</title>
+</head>
+<body>
+  <p><a href="/">← Kembali</a></p>
+  <h1>Form Input Chord Lagu Baru</h1>
+
+  <form action="/admin/add" method="POST">
+    <div>
+      <label>Judul Lagu:</label><br>
+      <input type="text" name="title" required style="width: 300px;">
+    </div><br>
+
+    <div>
+      <label>Nama Artis/Band:</label><br>
+      <input type="text" name="artist" required style="width: 300px;">
+    </div><br>
+
+    <div>
+      <label>Isi Lirik & Chord (Gunakan format <code>[Chord]</code>):</label><br>
+      <textarea name="content" rows="15" cols="70" placeholder="[C]Akan ku [G]jaga [Am]semua [F]mimpi" required></textarea>
+    </div><br>
+
+    <button type="submit">Simpan Lagu</button>
+  </form>
+</body>
+</html>

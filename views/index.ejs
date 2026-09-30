@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Kumpulan Chord Lagu</title>
+</head>
+<body>
+  <h1>Daftar Chord Lagu</h1>
+  <p><a href="/admin">+ Tambah Lagu Baru (Admin)</a></p>
+  <hr>
+  <ul>
+    <% if (songs.length === 0) { %>
+      <li>Belum ada lagu yang diinput.</li>
+    <% } %>
+    <% songs.forEach(song => { %>
+      <li>
+        <a href="/chord/<%= song.slug %>">
+          <strong><%= song.artist %></strong> - <%= song.title %>
+        </a>
+      </li>
+    <% }) %>
+  </ul>
+</body>
+</html>
